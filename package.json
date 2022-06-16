@@ -1,5 +1,25 @@
 {
+  "name": "atd-simplifier",
+  "description": "A tool for simlifying of administrarive boundary",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlatonBelan/ATD-simplifier.git"
+  },
+  "keywords": [
+    "simplifying"
+  ],
+  "author": "Platon Belan <Platonbelan2001@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PlatonBelan/ATD-simplifier/issues"
+  },
+  "homepage": "https://github.com/PlatonBelan/ATD-simplifier#readme",
   "dependencies": {
-    "mapshaper": "^0.6.4"
+    "mapshaper": "^0.6.5"
   }
 }

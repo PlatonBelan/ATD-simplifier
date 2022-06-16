@@ -2,7 +2,11 @@ FROM node
 
 WORKDIR /app
 
-COPY . .
-EXPOSE 3000
+COPY package.json /app
 
-CMD [ "node", "./node_modules/mapshaper/mapshaper.js" ]
+RUN npm install
+
+VOLUME ["D:/ATD-simplifier/node_modules/mapshaper/data:/app/node_modules/mapshaper/data"]
+VOLUME ["app/node_modules"]
+
+CMD ["node", "mapshaper.js"]
