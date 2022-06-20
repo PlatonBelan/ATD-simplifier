@@ -1,12 +1,23 @@
-FROM node
+FROM ubuntu
 
 WORKDIR /app
 
+RUN apt update
+RUN apt install -y nodejs
+RUN apt install -y python3
+RUN apt install -y npm
+
 COPY package.json /app
 
+RUN npm install -g mapshaper
 RUN npm install
 
-VOLUME ["D:/ATD-simplifier/node_modules/mapshaper/data:/app/node_modules/mapshaper/data"]
-VOLUME ["app/node_modules"]
+COPY . .
 
-CMD ["node", "mapshaper.js"]
+VOLUME D:/ATD-simplifier/data:/app/data
+VOLUME app/node_modules
+
+RUN chmod +x ./entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]
+#CMD ["python3", "test.py"]

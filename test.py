@@ -1,14 +1,19 @@
-import os
+import subprocess as sp
+sp.run(["node", "./node_modules/mapshaper/mapshaper.js"])
 
-os.system("d:")
-os.system("cd ATD-simplifier")
+infile="./test/boundary-polygon-lvl6.shp"
+#percentage=int(input("Enter percentage of vertices to keep: "))
+#format=input("Specify output format (shapefile|geojson|topojson|json|dbf|csv|tsv|svg): ") #shapefile
+#outfile=input("Specify the path to output file")#./data/out.shp
 
-os.system("node ./node_modules/mapshaper/mapshaper.js")
-os.system("mapshaper ./test/boundary-polygon-lvl6.shp - simplify\
-          weighted 10% -o format=shapefile ./data/out10.shp")
-os.system("mapshaper ./test/boundary-polygon-lvl6.shp - simplify\
-          weighted 25% -o format=shapefile ./data/out25.shp")
-os.system("mapshaper ./test/boundary-polygon-lvl6.shp - simplify\
-          weighted 50% -o format=shapefile ./data/out50.shp")
-os.system("mapshaper ./test/boundary-polygon-lvl6.shp - simplify\
-          weighted 75% -o format=shapefile ./data/out75.shp")
+
+
+sp.run(["mapshaper", infile, "-simplify",
+          "weighted", "10%", "-o", "format=shapefile", "./data/out10.shp"])
+sp.run(["mapshaper", infile, "-simplify",
+          "weighted", "25%", "-o", "format=shapefile", "./data/out25"])
+sp.run(["mapshaper", infile, "-simplify",
+          "weighted", "50%", "-o", "format=shapefile", "./data/out50"])
+sp.run(["mapshaper", infile, "-simplify",
+          "weighted", "75%", "-o", "format=shapefile", "./data/out75"])
+
