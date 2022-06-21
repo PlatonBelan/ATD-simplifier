@@ -14,9 +14,6 @@ RUN npm install
 
 COPY . .
 
-VOLUME D:/ATD-simplifier/data:/app/data
-VOLUME app/node_modules
-
 RUN chmod +x ./entrypoint.sh
 
 ENTRYPOINT ["./entrypoint.sh"]
