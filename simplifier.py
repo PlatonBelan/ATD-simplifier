@@ -1,12 +1,19 @@
+import os.path
 from subprocess import run
-from sys import argv
 
 
-def mapshaper_command():
-    run(["node", "./node_modules/mapshaper/mapshaper.js"])
-    infile, percentage = argv[1], argv[2]
-    run(["mapshaper", infile, "-simplify", "weighted",
-         percentage, "-o", "format=shapefile", "./data/result.shp"])
+class Simplifier:
 
+    def __init__(self,
+                 input_file="./test/boundary-polygon-lvl6.shp",
+                 percentage='10%'):
+        self.input_path = os.path.abspath(input_file)
+        self.percentage = percentage
+        self.simplify()
 
-mapshaper_command()
+    def simplify(self):
+        run(["node", "./node_modules/mapshaper/mapshaper.js"])
+        run(["mapshaper",  self.input_path, "-simplify", "weighted",
+            self.percentage, "-o", "format=shapefile", "./data/result.shp"])
+
+obj=Simplifier()
