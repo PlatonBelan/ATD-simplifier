@@ -5,13 +5,13 @@ from subprocess import run
 class Simplifier:
 
     def __init__(self,
-                 input_file,
-                 percentage):
-        self.input_path = os.path.abspath(input_file)
-        self.percentage = percentage
-        self.simplify()
+                 input_file):
+        self.input_path = input_file
 
-    def simplify(self):
+    def simplify(self, percentage):
         run(["node", "./node_modules/mapshaper/mapshaper.js"])
+        if type(percentage)==int:
+            percentage=str(percentage)+'%'
+        output="./data/result_"+percentage+".shp"
         run(["mapshaper",  self.input_path, "-simplify", "weighted",
-            self.percentage, "-o", "format=shapefile", "./data/result.shp"])
+            percentage, "-o", "format=shapefile", output])
