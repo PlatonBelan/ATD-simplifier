@@ -1,12 +1,10 @@
-from subprocess import run
-from sys import argv
+from os import system
 
 
-def mapshaper_command():
-    run(["node", "./node_modules/mapshaper/mapshaper.js"])
-    infile, percentage = argv[1], argv[2]
-    run(["mapshaper", infile, "-simplify", "weighted",
-         percentage, "-o", "format=shapefile", "./data/result.shp"])
-
-
-mapshaper_command()
+def mapshaper_command(infile, percentage="10%", output="./data/out10.shp"):
+    system("node ./node_modules/mapshaper/mapshaper.js")
+    print(infile)
+    print(percentage)
+    print(output)
+    system("mapshaper "+infile+" -simplify weighted "+percentage +
+           " -o format=shapefile " + output)
