@@ -1,0 +1,7 @@
+[06.29.2022 13:51:13 | DEBUG]: Node version is actual
+[06.29.2022 13:51:13 | DEBUG]: Start simplify D:/ATD-simplifier/test/test_data.shp
+[06.29.2022 13:51:13 | DEBUG]: Simplification is finished. 10% vertices left
+[06.29.2022 13:51:13 | DEBUG]: Output file: D:\ATD-simplifier\ATDsimplifier\data\result_10%.shp
+[06.29.2022 13:51:13 | DEBUG]: Start simplify D:/ATD-simplifier/test/test_data.shp
+[06.29.2022 13:51:14 | DEBUG]: Simplification is finished. 30% vertices left
+[06.29.2022 13:51:14 | DEBUG]: Output file: D:\ATD-simplifier\ATDsimplifier\data\result_30%.shp
