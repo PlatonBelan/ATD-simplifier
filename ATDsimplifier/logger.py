@@ -1,6 +1,7 @@
 import logging
 
-if __name__ == "__main__":
+
+if __name__ == "logger":
     file_log = logging.FileHandler('simplifier.log')
     console_out = logging.StreamHandler()
     log_handlers = (file_log, console_out)
