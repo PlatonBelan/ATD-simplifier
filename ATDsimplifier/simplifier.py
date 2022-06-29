@@ -1,7 +1,7 @@
 import subprocess as sp
 from distutils.version import StrictVersion
-from logger import log
-from console import mapshaper_command
+from ATDsimplifier.logger import log
+from ATDsimplifier.console import mapshaper_command
 from os import path
 
 

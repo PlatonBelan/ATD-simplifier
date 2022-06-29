@@ -1,1 +1,1 @@
-from simplifier import Simplifier
+from ATDsimplifier.simplifier import Simplifier
