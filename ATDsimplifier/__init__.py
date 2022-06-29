@@ -1,1 +1,3 @@
-from ATDsimplifier.simplifier import Simplifier
+from ATDsimplifier.adapter_mapshaper_simplifier import Adapter_simplifier2mapshaper
+from ATDsimplifier.mapshaper_simplifier import Mapshaper_simplifier
+

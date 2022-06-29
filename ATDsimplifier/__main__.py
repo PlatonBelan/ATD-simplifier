@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from ATDsimplifier.simplifier import Simplifier
 
 
 if __name__=="__main__":
