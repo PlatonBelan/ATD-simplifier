@@ -1,7 +1,5 @@
-from simplifier import Simplifier
+import ATDsimplifier
 
-
-if __name__ == "__main__":
-    simplifier = Simplifier(input_file="./test/boundary-polygon-lvl6.shp")
-    boundary_10 = simplifier.simplify(10)
-    boundary_10 = simplifier.simplify(30)
+simplifier=ATDsimplifier.simplifier.Simplifier(input_file="D:/ATD-simplifier/test/test_data.shp")
+boundary_10=simplifier.simplify(10)
+boundary_10=simplifier.simplify(30)
