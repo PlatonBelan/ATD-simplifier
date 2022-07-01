@@ -2,5 +2,9 @@ node_modules
 __pycache__
 test
 data
-/ATDsimplifier/__pycache__
-/ATDsimplifier/data
+ATDsimplifier/__pycache__
+ATDsimplifier/data
+*.log
+adapters/__pycache__
+ATDsimplifier/*.log
+
