@@ -5,7 +5,9 @@ class ISimplifier(ABC):
     @abstractmethod
     def get_path(self):
         pass
-
+    @abstractmethod
+    def check(self):
+        pass
     @abstractmethod
     def simplify(self):
         pass
