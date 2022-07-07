@@ -7,4 +7,5 @@ ATDsimplifier/data
 *.log
 adapters/__pycache__
 ATDsimplifier/*.log
+tests/__pycache__
 
