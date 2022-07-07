@@ -18,14 +18,11 @@ class Simplifier(ISimplifier):
         self.adapter.check()
 
     def simplify(self, percentage: float):
-        if 0.0 <= percentage and percentage <= 100.0:
-            percentage = str(percentage)+'%'
-        else:
+        if 0.0 > percentage and percentage > 100.0:
             raise ValueError
-
         try:
             log.debug("Start simplify "+self.input_path)
-            output = "./data/result_"+percentage+".shp"
+            output = "./data/result_"+str(percentage)+"%.shp"
 
             self.adapter.simplify(self.input_path, percentage, output)
 
