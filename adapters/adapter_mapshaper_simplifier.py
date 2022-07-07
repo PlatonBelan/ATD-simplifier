@@ -1,8 +1,10 @@
 from ATDsimplifier.interface import ISimplifier
 from ATDsimplifier.logger import log
 from os import system
+from os import path
 import subprocess as sp
 from distutils.version import StrictVersion
+from pathlib import PurePath
 
 
 class AdapterMapshaper2Simplifier(ISimplifier):
@@ -20,8 +22,15 @@ class AdapterMapshaper2Simplifier(ISimplifier):
     def get_path(self):
         pass
 
-    def simplify(self, input_path, percentage, output):
-        system("node ./node_modules/mapshaper/mapshaper.js")
-        system("mapshaper "+input_path+" -simplify weighted "+percentage +
-               " -o format=shapefile " + output)
+    def simplify(self, input_path, percentage: float, output):
+        percentage = str(percentage)+'%'
+        if path.isfile(input_path):
+            if PurePath(output).match("*.shp"):
+                system("node ./node_modules/mapshaper/mapshaper.js")
+                system("mapshaper "+input_path+" -simplify weighted "+percentage +
+                    " -o format=shapefile " + output)
+            else:
+                raise ValueError
+        else:
+            raise FileNotFoundError
 
