@@ -1,4 +1,3 @@
-from sympy import im
 from ATDsimplifier.simplifier import Simplifier
 from adapters.adapter_mapshaper_simplifier import AdapterMapshaper2Simplifier
 from configparser import ConfigParser

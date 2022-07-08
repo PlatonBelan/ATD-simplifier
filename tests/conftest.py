@@ -6,7 +6,7 @@ import pytest
 
 @pytest.fixture(scope="module")
 def simplifier():
-    return Simplifier("./test/test_data.shp", AdapterMapshaper2Simplifier())
+    return Simplifier("./test_data/test_data.shp", AdapterMapshaper2Simplifier())
 
 
 @pytest.fixture(scope="module")

@@ -22,7 +22,7 @@ class Simplifier(ISimplifier):
             raise ValueError
         try:
             log.debug("Start simplify "+self.input_path)
-            output = "./data/result_"+str(percentage)+"%.shp"
+            output = "./results/result_"+str(percentage)+"%.shp"
 
             self.adapter.simplify(self.input_path, percentage, output)
 
