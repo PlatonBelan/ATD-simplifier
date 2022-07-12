@@ -1,10 +1,8 @@
 from ATDsimplifier.simplifier import Simplifier
-from adapters.adapter_mapshaper_simplifier import AdapterMapshaper2Simplifier
-from configparser import ConfigParser
+from ATDsimplifier import choose_adaper
 
-config=ConfigParser()
-config.read('config.ini')
-
-adapter=AdapterMapshaper2Simplifier()
-simplifier=Simplifier(input_file=str(config['simplifier']['input']), adapter=adapter)
-boundary_simplified=simplifier.simplify(float(config['simplifier']['percentage']))
+percentage=10
+adapter=choose_adaper(percentage)
+simplifier = Simplifier(
+    input_file="./test_data/test_data.shp", adapter=adapter)
+boundary_simplified = simplifier.simplify(percentage)

@@ -1,7 +1,6 @@
 from os import path
 from ATDsimplifier.logger import log
 from ATDsimplifier.interface import ISimplifier
-from adapters.adapter_mapshaper_simplifier import AdapterMapshaper2Simplifier
 
 
 class Simplifier(ISimplifier):
