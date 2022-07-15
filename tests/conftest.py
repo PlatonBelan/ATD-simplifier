@@ -1,5 +1,5 @@
 from ATDsimplifier.simplifier import Simplifier
-from adapters.adapter_mapshaper_simplifier import AdapterMapshaper2Simplifier
+from adapters.adapterMapshaper.adapter_mapshaper_simplifier import AdapterMapshaper2Simplifier
 
 import pytest
 
