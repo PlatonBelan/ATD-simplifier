@@ -29,6 +29,10 @@ class AdapterMapshaper2Simplifier(ISimplifier):
                 system("node ./node_modules/mapshaper/mapshaper.js")
                 system("mapshaper "+input_path+" -simplify weighted "+percentage +
                     " -o format=shapefile " + output)
+            elif PurePath(output).match("*.geojson"):
+                system("node ./node_modules/mapshaper/mapshaper.js")
+                system("mapshaper "+input_path+" -simplify weighted "+percentage +
+                    " -o format=geojson " + output)
             else:
                 raise ValueError
         else:
