@@ -4,8 +4,9 @@ from configparser import ConfigParser
 config=ConfigParser()
 config.read('config.ini')
 
-alias=str(config['simplifier']['adapter'])
-dict_adapter_alias={alias: AdapterMapshaper2Simplifier}
+if str(config['simplifier']['adapter']) == 'AdapterMapshaper':
+    alias=str(config['simplifier']['adapter'])
+    dict_adapter_alias={alias: AdapterMapshaper2Simplifier}
 
 def choose_adaper(percentage):
     if 0 <= percentage and percentage <= float(config['simplifier']['percentage']):
