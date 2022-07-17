@@ -6,8 +6,9 @@ def test_poly_with_holes(adapter):
     output="./results/poly_with_holes_2%.geojson"
 
     adapter.simplify(input,percentage, output)
-    assert (count_vertices(output))/(count_vertices(input))*100-2.5 <= percentage \
-        and percentage <= (count_vertices(output))/(count_vertices(input))*100
+    real_percentage=(count_vertices(output))/(count_vertices(input))*100
+    assert real_percentage-2.5 <= percentage \
+        and percentage <= real_percentage
 
 
 def test_long_poly(adapter):
@@ -16,8 +17,9 @@ def test_long_poly(adapter):
     output="./results/long_poly_0.1%.geojson"
 
     adapter.simplify(input,percentage, output)
-    assert (count_vertices(output))/(count_vertices(input))*100-0.1 <= percentage \
-        and percentage <= (count_vertices(output)+5)/(count_vertices(input))*100+0.1
+    real_percentage=(count_vertices(output))/(count_vertices(input))*100
+    assert real_percentage-0.1 <= percentage \
+        and percentage <= real_percentage+0.1
 
 def count_vertices(path_to_file):
     with open(path_to_file) as f:
