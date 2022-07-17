@@ -25,8 +25,17 @@ def count_vertices(path_to_file):
     with open(path_to_file) as f:
         gj = json.load(f)
     n=0
-    for poly in gj['features'][0]['geometry']['coordinates']:
-        for part in poly:
-            n+=len(part)
+    poly_type=gj['features'][0]['geometry']['type']
+
+    if poly_type=='MultiPolygon':
+        coord_list=gj['features'][0]['geometry']['coordinates'] # [[[area1], [hole1], [holeN]], [[area2]]]
+        for area in coord_list:
+            for part in area:
+                n+=len(part)
+    elif poly_type=='Polygon':
+        for feature in gj['features']:
+            coord_list=feature['geometry']['coordinates'] # [[area], [hole1], [holeN]]
+            for area in coord_list:
+                n+=len(area)
     return n
 
