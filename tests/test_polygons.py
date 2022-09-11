@@ -1,25 +1,25 @@
 import json
+import pytest
 
-def test_poly_with_holes(adapter):
-    percentage = 2
+@pytest.mark.parametrize('percentage', [1, 2, 10, 50])
+def test_poly_with_holes(adapter, percentage):
     input="./test_data/poly_with_hole.geojson"
-    output="./results/poly_with_holes_2%.geojson"
+    output="./results/poly_with_holes_"+str(percentage)+"%.geojson"
 
     adapter.simplify(input,percentage, output)
     real_percentage=(count_vertices(output))/(count_vertices(input))*100
     assert real_percentage-2.5 <= percentage \
         and percentage <= real_percentage
 
-
-def test_long_poly(adapter):
-    percentage = 0.1
+@pytest.mark.parametrize('percentage', [0.1, 2, 5, 25])
+def test_long_poly(adapter, percentage):
     input="./test_data/long_poly.geojson"
-    output="./results/long_poly_0.1%.geojson"
+    output="./results/long_poly_"+str(percentage)+"%.geojson"
 
     adapter.simplify(input,percentage, output)
     real_percentage=(count_vertices(output))/(count_vertices(input))*100
-    assert real_percentage-0.1 <= percentage \
-        and percentage <= real_percentage+0.1
+    assert real_percentage-0.15 <= percentage \
+        and percentage <= real_percentage+0.15
 
 def count_vertices(path_to_file):
     with open(path_to_file) as f:
